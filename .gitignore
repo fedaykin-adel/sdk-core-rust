@@ -1,2 +1,48 @@
-target/
-skd-web/node_modules/
+# === Rust ===
+/target/
+/Cargo.lock
+**/*.rs.bk
+
+# If you're using cargo-edit
+/.cargo/
+
+# === Node.js ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# === TypeScript ===
+*.tsbuildinfo
+dist/
+build/
+out/
+
+# === Vite / Next.js (web) ===
+.next/
+.vite/
+.vercel/
+
+# === WebAssembly / FFI output ===
+*.wasm
+*.node
+*.d.ts
+pkg/
+index.node
+index.d.ts
+
+# === IDEs ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# === OS files ===
+.DS_Store
+Thumbs.db
+
+# === Env / Secrets ===
+.env
+.env.*
