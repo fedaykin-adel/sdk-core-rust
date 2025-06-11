@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "packages/backend",
+    "packages/core",
+    "packages/ffi",
+    "packages/ffi_macros",
+]

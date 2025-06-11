@@ -1,0 +1,17 @@
+[package]
+name = "shaayud_ffi"
+version = "0.1.1"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+
+[dependencies]
+shaayud_core = { path = "../core" }
+shaayud_ffi_macros = { path = "../ffi_macros" }
+napi-derive = "2.0"
+napi = { version = "2", features = ["serde_json"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+reqwest = { version = "0.12", features = ["blocking", "json"] }

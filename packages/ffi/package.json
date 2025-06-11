@@ -1,0 +1,14 @@
+{
+  "name": "@shaayud/sdk-node",
+  "version": "0.1.1",
+  "main": "index.node",
+  "files": [
+    "index.node",
+    "index.d.ts",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "napi build --release", 
+    "pack": "npm run build && npm pack"
+  }
+}

@@ -1,0 +1,18 @@
+[package]
+name = "shaayud_core"
+version = "0.1.0"
+edition = "2024"
+
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sqlx = { version = "0.8", features = [
+    "postgres",
+    "runtime-tokio-rustls",
+    "macros",
+] }
+sea-orm = { version = "1.1", features = [
+    "sqlx-postgres",
+    "runtime-tokio-native-tls",
+] }

@@ -1,0 +1,16 @@
+{
+  "name": "@shaayud/sdk-web",
+  "version": "0.1.0",
+  "main": "index.js",
+  "type": "module",
+  "files": [
+    "index.js",
+    "package.json"
+  ],
+  "scripts": {
+    "pack": "npm pack"
+  },
+  "dependencies": {
+    "@fingerprintjs/fingerprintjs": "^3.4.1"
+  }
+}
