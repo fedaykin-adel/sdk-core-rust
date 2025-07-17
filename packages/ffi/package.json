@@ -1,5 +1,5 @@
 {
-  "name": "@shaayud/sdk-node",
+  "name": "@shaayud/sdk-core",
   "version": "0.1.1",
   "main": "index.node",
   "files": [
@@ -8,7 +8,7 @@
     "package.json"
   ],
   "scripts": {
-    "build": "napi build --release", 
+    "build": "napi build", 
     "pack": "npm run build && npm pack"
   }
 }

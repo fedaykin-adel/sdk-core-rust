@@ -1,0 +1,24 @@
+{
+  "name": "@shaayud/sdk-node",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "npx tsc --project tsconfig.json --pretty",
+    "clean": "rm -rf dist",
+    "prepack": "npm install && npm run clean && npm run build",
+    "pack": "npm run prepack && npm pack"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@shaayud/sdk-core": "file:../ffi/shaayud-sdk-core-0.1.1.tgz"
+  }
+}

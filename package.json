@@ -3,7 +3,7 @@
   "private": true,
   "devDependencies": {
     "typescript": "^5.x",
-    "@napi/cli": "^2.x"
+    "@napi-rs/cli": "^2.x"
   },
   "workspaces": [
     "packages/sdk-*"
@@ -12,8 +12,9 @@
     "build:ffi": "cd packages/ffi && cargo clean && npm run pack",
     "build:web": "cd packages/sdk-web && npm run pack",
     "build:node": "cd packages/sdk-node && npm run pack",
-    "build:backend": "cd packages/backend && cargo build && cargo run",
+    "run:backend": "cd packages/backend && cargo build && cargo run",
     "build:core":"cd packages/core && cargo build",
+    
     "db":"docker compose up -d"
   }
     

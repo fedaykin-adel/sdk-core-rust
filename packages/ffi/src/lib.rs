@@ -1,7 +1,8 @@
 use napi::bindgen_prelude::*;
 use napi_derive::napi;
+use shaayud_core::EventoInput;
 // use reqwest::blocking::Client;
-pub use shaayud_core::{DataRequest, UserData, VerificationResult, verify_user};
+pub use shaayud_core::{UserData, VerificationResult, verify_user};
 // use shaayud_ffi_macros::shaayud_export;
 
 // #[shaayud_export]
@@ -20,7 +21,7 @@ pub fn verify_user_json(input: String) -> Result<String> {
 // #[shaayud_export]
 #[napi]
 pub fn ingest(input: String) -> Result<String> {
-    let data: DataRequest = serde_json::from_str(&input)
+    let data: EventoInput = serde_json::from_str(&input)
         .map_err(|e| Error::from_reason(format!("Invalid input: {}", e)))?;
 
     // recive_data(data);
