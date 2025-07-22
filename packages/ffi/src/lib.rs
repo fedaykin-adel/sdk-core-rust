@@ -1,26 +1,28 @@
 use napi::bindgen_prelude::*;
 use napi_derive::napi;
 use shaayud_core::EventoInput;
+use std::fs::OpenOptions;
+use std::io::Write;
 // use reqwest::blocking::Client;
-pub use shaayud_core::{UserData, VerificationResult, verify_user};
 // use shaayud_ffi_macros::shaayud_export;
 
 // #[shaayud_export]
-#[napi]
-pub fn verify_user_json(input: String) -> Result<String> {
-    let data: UserData = serde_json::from_str(&input)
-        .map_err(|e| Error::from_reason(format!("Invalid input: {}", e)))?;
+// #[napi]
+// pub fn verify_user_json(input: String) -> Result<String> {
+//     let data: UserData = serde_json::from_str(&input)
+//         .map_err(|e| Error::from_reason(format!("Invalid input: {}", e)))?;
 
-    let result: VerificationResult = verify_user(data);
+//     let result: VerificationResult = verify_user(data);
 
-    let output = serde_json::to_string(&result)
-        .map_err(|e| Error::from_reason(format!("Serialization failed: {}", e)))?;
-    Ok(output)
-}
+//     let output = serde_json::to_string(&result)
+//         .map_err(|e| Error::from_reason(format!("Serialization failed: {}", e)))?;
+//     Ok(output)
+// }
 
 // #[shaayud_export]
 #[napi]
 pub fn ingest(input: String) -> Result<String> {
+    debug_log(&input);
     let data: EventoInput = serde_json::from_str(&input)
         .map_err(|e| Error::from_reason(format!("Invalid input: {}", e)))?;
 
@@ -40,4 +42,12 @@ pub fn ingest(input: String) -> Result<String> {
     }
 
     Ok("ok".to_string())
+}
+fn debug_log(msg: &str) {
+    let mut file = OpenOptions::new()
+        .create(true)
+        .append(true)
+        .open("/tmp/shaayud.log")
+        .unwrap();
+    writeln!(file, "{}", msg).unwrap();
 }

@@ -1,6 +1,6 @@
 import { ingest } from "@shaayud/sdk-core";
 
-export function ingestPayload(req: any, resp:any){
+export async function ingestPayload(req: any, resp:any){
     const ip =
     req.headers?.['x-forwarded-for']?.split(',')[0]?.trim() ||
     req.connection?.remoteAddress ||
@@ -17,13 +17,14 @@ export function ingestPayload(req: any, resp:any){
         shaayud_id:req.body.shaayud_id,
         fingerprint: req.body.fingerprint,
         user_agent: req.headers?.['user-agent'] || 'unknown',
-        headers: req.headers || {},
+        header: req.headers || {},
         method: req.method || 'UNKNOWN',
         path: req.url || req.originalUrl || undefined,
         timestamp: new Date().toISOString(),
     }
+    
     try{
-        ingest(JSON.stringify(payload))
+        await ingest(JSON.stringify(payload))
     }catch(err){
         throw err
     }

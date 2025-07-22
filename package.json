@@ -14,7 +14,7 @@
     "build:node": "cd packages/sdk-node && npm run pack",
     "run:backend": "cd packages/backend && cargo build && cargo run",
     "build:core":"cd packages/core && cargo build",
-    
+    "build:pack":"npm run build:core && npm run build:ffi && npm run build:node",
     "db":"docker compose up -d"
   }
     
