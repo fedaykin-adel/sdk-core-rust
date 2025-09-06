@@ -12,13 +12,19 @@
   "scripts": {
     "build": "npx tsc --project tsconfig.json --pretty",
     "clean": "rm -rf dist",
-    "prepack": "npm install && npm run clean && npm run build",
+    "prepack": "npm run clean && npm install && rm -rf shaayud-sdk-node-1.0.0.tgz && npm run build",
     "pack": "npm run prepack && npm pack"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@shaayud/sdk-core": "file:../ffi/shaayud-sdk-core-0.1.1.tgz"
+    "@shaayud/sdk-core": "file:../ffi/shaayud-sdk-core-0.1.1.tgz",
+    "geoip-lite": "^1.4.10"
+  },
+  "devDependencies": {
+    "@types/geoip-lite": "^1.4.4",
+    "@types/node": "^24.1.0",
+    "typescript": "^5.8.3"
   }
 }

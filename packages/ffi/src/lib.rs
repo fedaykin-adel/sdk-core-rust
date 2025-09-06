@@ -1,8 +1,7 @@
 use napi::bindgen_prelude::*;
 use napi_derive::napi;
-use shaayud_core::EventoInput;
-use std::fs::OpenOptions;
-use std::io::Write;
+use shaayud_core::structs::eventos::EventoInput;
+
 // use reqwest::blocking::Client;
 // use shaayud_ffi_macros::shaayud_export;
 
@@ -22,7 +21,6 @@ use std::io::Write;
 // #[shaayud_export]
 #[napi]
 pub fn ingest(input: String) -> Result<String> {
-    debug_log(&input);
     let data: EventoInput = serde_json::from_str(&input)
         .map_err(|e| Error::from_reason(format!("Invalid input: {}", e)))?;
 
@@ -42,12 +40,4 @@ pub fn ingest(input: String) -> Result<String> {
     }
 
     Ok("ok".to_string())
-}
-fn debug_log(msg: &str) {
-    let mut file = OpenOptions::new()
-        .create(true)
-        .append(true)
-        .open("/tmp/shaayud.log")
-        .unwrap();
-    writeln!(file, "{}", msg).unwrap();
 }
