@@ -3,6 +3,23 @@ use serde::{Deserialize, Serialize};
 use serde_json::Value as JsonValue;
 
 #[derive(Debug, Deserialize, Serialize)]
+pub struct Viewport {
+    pub w: i32,
+    pub h: i32,
+}
+#[derive(Debug, Deserialize, Serialize)]
+pub struct Click {
+    pub x: i32,
+    pub y: i32,
+    pub t: i32,
+    pub b: i32,
+}
+#[derive(Debug, Deserialize, Serialize)]
+pub struct Wheel {
+    pub ticks: i32,
+    pub dy_sum: f64,
+}
+#[derive(Debug, Deserialize, Serialize)]
 pub struct GeoPayload {
     pub country: Option<String>,
     pub region: Option<String>,
@@ -36,4 +53,11 @@ pub struct EventoInput {
     pub backend_path: Option<String>,
     pub backend_method: Option<String>,
     pub backend_host: Option<String>,
+
+    pub ts_start: Option<i64>,
+    pub ts_end: Option<i64>,
+    pub viewport: Option<Viewport>,
+    pub points_deflate_b64: Option<String>,
+    pub clicks: Option<Vec<Click>>,
+    pub wheel: Option<Wheel>,
 }
