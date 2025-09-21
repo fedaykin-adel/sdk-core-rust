@@ -209,7 +209,7 @@ CREATE (sc:Score {
   at: datetime()
 })
 MERGE (e)-[:SCORED]->(sc)
-RETURN 1
+// RETURN 1
         "#;
     let mut tx = graph.start_txn().await.map_err(|e| {
         tracing::error!("🚫 start_tx falhou: {e}");
@@ -240,7 +240,7 @@ RETURN 1
             }
         }
     }
-    if let Err(e) = tx.run(q).await {
+    if let Err(e) = tx.execute(q).await {
         tracing::error!("💥 Erro ao executar Cypher: {e}");
         return Err(e);
     }
