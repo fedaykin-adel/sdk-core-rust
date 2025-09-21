@@ -5,10 +5,14 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
     }
   },
+  
+  "files": ["dist"],
+
   "scripts": {
     "build": "npx tsc --project tsconfig.json --pretty",
     "clean": "rm -rf dist",
@@ -19,7 +23,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "@shaayud/sdk-core": "file:../ffi/shaayud-sdk-core-0.1.1.tgz",
+    "@shaayud/sdk-core": "file:/home/adel/project/shaarimkodeeb/shaayud/packages/ffi/shaayud-sdk-core-0.1.1.tgz",
     "geoip-lite": "^1.4.10"
   },
   "devDependencies": {

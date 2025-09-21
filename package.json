@@ -15,7 +15,7 @@
     "run:backend": "cd packages/backend && cargo build && cargo run",
     "build:core":"cd packages/core && cargo clean && cargo build",
     "prepack":"rm -rf package-lock.json && rm -rf node_modules/ && cargo clean && rm -rf target/ &&  rm -rf cargo.lock ",
-    "build:pack":"npm run prepack && npm run build:core && npm run build:ffi && npm run build:node && npm run run:backend",
+    "build:pack":"npm run prepack && npm run build:core && npm run build:ffi && npm run build:node && npm run build:web && npm run run:backend",
     "db":"docker compose up -d"
   }
     

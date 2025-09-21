@@ -7,6 +7,13 @@
     "index.d.ts",
     "package.json"
   ],
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "node": "./index.node",
+      "default": "./index.node"
+    }
+  },
   "scripts": {
     "build": "rm -rf index.node && rm -rf node_modules/ && rm -rf package-lock.json && npm install && rm -rf shaayud-sdk-core-0.1.1.tgz && napi build --release",
     "pack": "npm run build && npm pack"

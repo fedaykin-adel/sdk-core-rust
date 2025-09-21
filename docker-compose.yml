@@ -1,17 +1,5 @@
 version: "3.8"
 services:
-  postgres:
-    image: postgres:16
-    container_name: shaayud_db
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: shaayud
-      POSTGRES_PASSWORD: secret
-      POSTGRES_DB: shaayud
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-
   neo4j:
     image: neo4j:5.20
     container_name: neo4j-apoc
