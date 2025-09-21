@@ -169,7 +169,7 @@ FOREACH (_ IN CASE WHEN pip IS NULL OR pip = '' THEN [] ELSE [1] END |
 )
 
 // ---------- GEO ----------
-WITH s, e, $geoCountry AS gc, $geoRegion AS gr, $geoCity AS gci, $geoTz AS gtz
+WITH s, e, $geoCountry AS gc, $geoRegion AS gr, $geoCity AS gci, $geoTimezone AS gtz
 FOREACH (_ IN CASE WHEN (gc IS NULL OR gc = '') AND (gr IS NULL OR gr = '') AND (gci IS NULL OR gci = '') AND (gtz IS NULL OR gtz = '') THEN [] ELSE [1] END |
   MERGE (g:Geo {
     country: toUpper(coalesce(gc,'')),
